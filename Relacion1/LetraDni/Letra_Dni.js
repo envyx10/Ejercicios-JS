@@ -7,17 +7,24 @@
 
 */
 
-function calculoLetra (){
+function calculoLetra() {
 
-    const LETRA = "TRWAGMYFPDXBNJZSQVHLCKE";
-    const RESTO = 23;
+    const LETRAS = "TRWAGMYFPDXBNJZSQVHLCKE";
+    const DIVISOR = 23;
 
-    let dni = parseInt(document.getElementById("dni").value);
-    let resto = dni % RESTO;
+    let dniMain = document.getElementById("dni").value;
 
-    document.getElementById("resultado").innerHTML = "La letra es: " + LETRA[resto];
+    let dni = parseInt(dniMain, 10);
+
+
+    if (isNaN(dni) || dniMain.length !== 8) {
+        document.getElementById("resultado").innerHTML = "Por favor, introduce un número de DNI válido de 8 dígitos.";
+        return false;
+    }
+
+    let resto = dni % DIVISOR;
+
+    document.getElementById("resultado").innerHTML = "La letra es: " + LETRAS[resto];
 
     return false;
-
 }
-

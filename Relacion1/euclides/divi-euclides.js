@@ -6,23 +6,29 @@
 *    @author: Pablo Diaz.
 */
 
-function diviEuclides(){
+function diviEuclides() {
 
-    let divi = parseInt(document.getElementById("dividendo").value) ;
-    let disor = parseInt(document.getElementById("divisor").value) ;
+    let num1= document.getElementById("dividendo").value;
+    let num2 = document.getElementById("divisor").value;
+
+    if (num1 === "" || num2 === "" || isNaN(num1) || isNaN(num2)) {
+        document.getElementById("resultado").innerHTML = "Por favor, introduce valores válidos para el dividendo y el divisor.";
+        return false;
+    }
+
+    let dividendo = parseInt(num1);
+    let divisor = parseInt(num2);
 
     let cociente = 0;
 
-    /* El resto es lo que queda en el monton despúes del último reparto */
-
-    while(divi >= disor){
-        divi -= disor;
-        cociente++ 
+    while (dividendo >= divisor) {
+        dividendo -= divisor;
+        cociente++;
     }
 
-    document.getElementById("resultado").innerHTML = "El cociente es : " + cociente + 
-                                                     " y el resto es : " + divi;
+
+    document.getElementById("resultado").innerHTML = "El cociente es: " + cociente +
+        " y el resto es: " + dividendo;
 
     return false;
-
 }
